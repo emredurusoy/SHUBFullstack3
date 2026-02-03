@@ -1,0 +1,18 @@
+<Solution>
+  <Project Path="Konu01Degisgenler/Konu01Degisgenler.csproj" />
+  <Project Path="Konu02TipDonusumleri/Konu02TipDonusumleri.csproj" Id="4d9851cb-2d87-4b0e-804f-805f5ea2baa3" />
+  <Project Path="Konu03Operatorler/Konu03Operatorler.csproj" Id="ea0672c7-b8f0-4e18-b1c5-93db392f298d" />
+  <Project Path="Konu04KararYapilari/Konu04KararYapilari.csproj" Id="7f69953e-38d2-427b-8417-728aaf33ae30" />
+  <Project Path="Konu05Metotlar/Konu05Metotlar.csproj" Id="9f8ffbec-c751-4b72-a467-cff970dd6344" />
+  <Project Path="Konu06Diziler/Konu06Diziler.csproj" Id="f37fde25-390a-40e2-adc9-205f7111ee37" />
+  <Project Path="Konu07Donguler/Konu07Donguler.csproj" Id="dd1b6e37-cecb-4471-bb03-958a59595497" />
+  <Project Path="Konu08SınıflarClasses/Konu08SınıflarClasses.csproj" Id="83fa5d1b-ced9-4917-a628-7fd2c86dde7b" />
+  <Project Path="Konu09StructYapilar/Konu09StructYapilar.csproj" Id="2c364eb3-d3de-4e5d-9d50-8fb35dc462c1" />
+  <Project Path="Konu10StringSinifi/Konu10StringSinifi.csproj" Id="33a4197e-4d00-405e-9078-2ff5ee8efafa" />
+  <Project Path="Konu11Enumlar/Konu11Enumlar.csproj" Id="57c4356d-53ce-49e3-86d7-b47746d5abb3" />
+  <Project Path="Konu12KalitimInheritance/Konu12KalitimInheritance.csproj" Id="b2bdf0ef-5be0-40ef-b291-12327116465a" />
+  <Project Path="Konu13KapsullemeEncapsulation/Konu13KapsullemeEncapsulation.csproj" Id="17f9a5a6-5695-4d1a-9be9-9d56ff7bd0e4" />
+  <Project Path="Konu14InterfacesArayuzler/Konu14InterfacesArayuzler.csproj" Id="cf32fd7a-fc11-49be-be7c-370775ac3ac4" />
+  <Project Path="Konu15AbstractClasses/Konu15AbstractClasses.csproj" Id="f4031052-8954-40a1-897f-a8868c8a89cc" />
+  <Project Path="Konu16CollectionKoleksiyonlar/Konu16CollectionKoleksiyonlar.csproj" Id="ef30171b-6ff2-4eeb-8dce-4a43d7cb1c7f" />
+</Solution>
