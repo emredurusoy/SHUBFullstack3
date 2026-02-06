@@ -150,21 +150,93 @@ namespace Konu16CollectionKoleksiyonlar
 
         static void ListKullanımı()
         {
-            Console.WriteLine("Liste kullanımı");
+            Console.WriteLine("List Kullanimi");
             List<string> sehirler = new(); // string veri tipi alabilen bir liste
             sehirler.Add("Ankara");
             sehirler.Add("İstanbul");
-            sehirler.Add("Adana");
-            sehirler.Add("Mersin");
-            sehirler.Add("Bursa");
-
-            Console.WriteLine("Şehirler");
-            foreach (var item in sehirler) // sehirler ismli listede dön 
+            sehirler.Add("Kocaeli");
+            sehirler.Add("Sivas 58");
+            sehirler.Add("Çankırı");
+            // sehirler.Add(18); // !! List<string> dediğimiz için string dışında listeye ekleme yapamayız!
+            Console.WriteLine("Şehirler:");
+            foreach (var item in sehirler) // sehirler isimli listede dön
             {
                 Console.WriteLine(item); // listedeki her nesneyi ekrana yaz
-            } 
-
+            }
             Console.WriteLine();
+
+            List<User> users = new();
+            users.Add(new User
+            {
+                Id = 1,
+                Name = "Mesut",
+                Email = "mesut",
+                Password = "123"
+            });
+            users.Add(new User
+            {
+                Id = 2,
+                Name = "Alp",
+                Email = "alp",
+                Password = "321"
+            });
+            Console.WriteLine("Kullanıcılar:");
+            foreach (var item in users)
+            {
+                Console.WriteLine(item.Name + " " + item.Password);
+            }
+            Console.WriteLine();
+            List<User> kullanicilar = new()
+            {
+                new User
+                {
+                    Id = 3,
+                    Name = "Pusat",
+                    Email = "pusat",
+                    Password = "gmr12"
+                },
+                new User
+                {
+                    Id = 4,
+                    Name = "Murat",
+                    Email = "yilmaz",
+                    Password = "mry25"
+                }
+            };
+            Console.WriteLine("Kullanıcılar 2:");
+            foreach (var item in kullanicilar)
+            {
+                Console.WriteLine(item.Name + " " + item.Password);
+            }
+            Console.WriteLine();
+            var yeniKullanici = new User
+            {
+                Id = 5,
+                Name = "Aslan",
+                Password = "789"
+            };
+            Console.WriteLine("Kullanıcılar listesinde yeniKullanici var mı? :");
+            var varmi = kullanicilar.Contains(yeniKullanici); // Contains metoduyla bir listede arama yapabiliriz.
+            Console.WriteLine("varmi ? " + varmi);
+            kullanicilar.Add(yeniKullanici);
+            Console.WriteLine("şimdi varmı? " + kullanicilar.Contains(yeniKullanici));
+            Console.WriteLine();
+            Console.WriteLine("Kullanıcılar 3:");
+            foreach (var item in kullanicilar)
+            {
+                Console.WriteLine(item.Name + " " + item.Password);
+            }
+            Console.WriteLine();
+            kullanicilar.AddRange(users); // AddRange metodu listeye çoklu kayıt eklememizi sağlar.
+            kullanicilar.Insert(0, yeniKullanici); // Insert metodu listeye verdiğimiz indexe ekleme yapmamızı sağlar
+            Console.WriteLine();
+            Console.WriteLine("Kullanıcılar 4:");
+            foreach (var item in kullanicilar)
+            {
+                Console.WriteLine(item.Name + " " + item.Password);
+            }
+            Console.WriteLine();
+            Console.WriteLine("Listedeki kayıt sayısı: " + kullanicilar.Count); // Count listedeki eleman sayısını getirir.
 
 
         }
