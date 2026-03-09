@@ -7,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsAppAdoNetCRUD;
 
-namespace WindowsFormsAppAdoNetCRUD
+namespace WindowsFormsAppEntityFrameworkCRUD
 {
     public partial class KategoriYonetimi : Form
     {
@@ -16,34 +17,33 @@ namespace WindowsFormsAppAdoNetCRUD
         {
             InitializeComponent();
         }
-
-        private void label1_Click(object sender, EventArgs e)
+        DatabaseContext context = new DatabaseContext();
+        void Yukle()
         {
+            
+            dgvKategoriler.DataSource = context.Categories.ToList();
+            // butonları sıfırla 
+            btlEkle.Enabled = true;
+            BtlGüncelle.Enabled = true;
+            btlSil.Enabled = true;
+            
+            // input ayarlarını sıfırla
+            txtAciklama.Text = string.Empty;
+            txtKategoriAdi.Text = string.Empty; 
+            cbDurum.Checked = false;
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-        CategoryDAL dAL = new CategoryDAL();
         private void KategoriYonetimi_Load(object sender, EventArgs e)
         {
             Yukle();
         }
-        void Yukle()
-        {
-            dgvKategoriler.DataSource = dAL.GetDataTable("select * from categories");
-            btlEkle.Enabled = true;
-            BtlGüncelle.Enabled = false;
-            btlSil.Enabled = false;
-        }
 
         private void btlEkle_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtKategoriAdi.Text))
+            if (!string.IsNullOrEmpty(txtKategoriAdi.Text)) ;
             {
-                MessageBox.Show("Kategori Adı Boş Geçmez");
+                MessageBox.Show("Kategori Adı Boş Geçmez!");
                 return;
             }
             var kategori = new Category
@@ -53,7 +53,8 @@ namespace WindowsFormsAppAdoNetCRUD
                 Description = txtAciklama.Text,
                 IsActive = cbDurum.Checked,
             };
-            var sonuc = dAL.Add(kategori);
+            context.Categories.Add(kategori); // ef de kategoirlere add metodu ile ekleme yapıyoruz 
+            var sonuc = context.SaveChanges(); // ef de SaveChanges metodu vardır ve bu metot context üzerine yapılan eklme güncelleme silme vb işlmelri veritabanına işler ve db den etkilenen sayısını getirir 
             if (sonuc > 0)
             {
                 Yukle();
@@ -78,39 +79,37 @@ namespace WindowsFormsAppAdoNetCRUD
 
         private void BtlGüncelle_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtKategoriAdi.Text))
+            if (!string.IsNullOrEmpty(txtKategoriAdi.Text)) ;
             {
-                MessageBox.Show("Kategori Adı Boş Geçmez");
+                MessageBox.Show("Kategori Adı Boş Geçmez!");
                 return;
             }
-            var kategori = new Category
-            {
-                Id = (int)dgvKategoriler.CurrentRow.Cells[0].Value,
-                CreateDate = DateTime.Now,
-                Name = txtKategoriAdi.Text,
-                Description = txtAciklama.Text,
-                IsActive = cbDurum.Checked,
-            };
-            var sonuc = dAL.Update(kategori); // kaydı güncelle 
+            var id = (int)dgvKategoriler.CurrentRow.Cells[0].Value; // seçilen kaydın id değerini al
+            var kayit = context.Categories.Find(id); // dbden bu idli kaydı bulan ef metodu find 
+            // dbden bulunan kaydın bilgilerini değiştir
+            kayit.Name = txtKategoriAdi.Text; 
+            kayit.Description = txtAciklama.Text;
+            kayit.IsActive = cbDurum.Checked;
+            // değişklikleri db ye işle 
+            var sonuc = context.SaveChanges();
             if (sonuc > 0)
             {
                 Yukle();
-                MessageBox.Show("Kayıt Güncelleme Başarılı!");
+                MessageBox.Show("Kayıt Başarılı!");
             }
             else
             {
-                MessageBox.Show("Kayıt Güncelleme Başarısız");
+                MessageBox.Show("Kayıt Başarısız");
             }
         }
 
         private void btlSil_Click(object sender, EventArgs e)
         {
-            var kategori = new Category
-            {
-                Id = (int)dgvKategoriler.CurrentRow.Cells[0].Value,
-                
-            };
-            var sonuc = dAL.Delete(kategori); // kaydı silme
+            var id = (int)dgvKategoriler.CurrentRow.Cells["Id"].Value; // seçilen kaydın id si 
+            var kayit = context.Categories.Find(id); // db den kaydı bul
+            context.Categories.Remove(kayit); // kaydı silinecej olarak işaretle 
+            // değişklikleri db ye işle 
+            var sonuc = context.SaveChanges();
             if (sonuc > 0)
             {
                 Yukle();

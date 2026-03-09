@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsAppAdoNetCRUD
+﻿namespace WindowsFormsAppEntityFrameworkCRUD
 {
     partial class KategoriYonetimi
     {
@@ -54,10 +54,10 @@
             this.groupBox1.Controls.Add(this.txtKategoriAdi);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 262);
+            this.groupBox1.Location = new System.Drawing.Point(19, 257);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(557, 176);
-            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Kategori Bilgiler";
             // 
@@ -109,7 +109,6 @@
             this.label3.Size = new System.Drawing.Size(63, 16);
             this.label3.TabIndex = 3;
             this.label3.Text = "Açıklama";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // cbDurum
             // 
@@ -136,7 +135,6 @@
             this.label2.Size = new System.Drawing.Size(46, 16);
             this.label2.TabIndex = 0;
             this.label2.Text = "Durum";
-            this.label2.Click += new System.EventHandler(this.label1_Click);
             // 
             // label1
             // 
@@ -146,30 +144,29 @@
             this.label1.Size = new System.Drawing.Size(80, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Kategori Adı";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // dgvKategoriler
             // 
             this.dgvKategoriler.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvKategoriler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvKategoriler.Location = new System.Drawing.Point(21, 22);
+            this.dgvKategoriler.Location = new System.Drawing.Point(28, 17);
             this.dgvKategoriler.Name = "dgvKategoriler";
             this.dgvKategoriler.RowHeadersWidth = 51;
             this.dgvKategoriler.RowTemplate.Height = 24;
             this.dgvKategoriler.Size = new System.Drawing.Size(754, 219);
-            this.dgvKategoriler.TabIndex = 1;
+            this.dgvKategoriler.TabIndex = 3;
             this.dgvKategoriler.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKategoriler_CellClick);
             // 
             // KategoriYonetimi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(797, 450);
-            this.Controls.Add(this.dgvKategoriler);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.dgvKategoriler);
             this.Name = "KategoriYonetimi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Kategori Yönetimi";
+            this.Text = "EF Kategori Yönetimi";
             this.Load += new System.EventHandler(this.KategoriYonetimi_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -181,15 +178,15 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtKategoriAdi;
-        private System.Windows.Forms.CheckBox cbDurum;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.RichTextBox txtAciklama;
-        private System.Windows.Forms.DataGridView dgvKategoriler;
-        private System.Windows.Forms.Button btlEkle;
         private System.Windows.Forms.Button btlSil;
         private System.Windows.Forms.Button BtlGüncelle;
+        private System.Windows.Forms.Button btlEkle;
+        private System.Windows.Forms.RichTextBox txtAciklama;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox cbDurum;
+        private System.Windows.Forms.TextBox txtKategoriAdi;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dgvKategoriler;
     }
 }

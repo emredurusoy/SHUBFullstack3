@@ -10,30 +10,20 @@ using System.Windows.Forms;
 
 namespace WindowsFormsAppAdoNetCRUD
 {
-    public partial class KategoriYonetimi : Form
+    public partial class KullaniciYonetimi : Form
     {
-        public KategoriYonetimi()
+        public KullaniciYonetimi()
         {
             InitializeComponent();
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-        CategoryDAL dAL = new CategoryDAL();
-        private void KategoriYonetimi_Load(object sender, EventArgs e)
+        KullanicidAL dAL = new KullanicidAL();
+        private void KullaniciYonetimi_Load(object sender, EventArgs e)
         {
             Yukle();
         }
         void Yukle()
         {
-            dgvKategoriler.DataSource = dAL.GetDataTable("select * from categories");
+            dgvKullanicilar.DataSource = dAL.GetDataTable("select * from users");
             btlEkle.Enabled = true;
             BtlGüncelle.Enabled = false;
             btlSil.Enabled = false;
@@ -41,19 +31,65 @@ namespace WindowsFormsAppAdoNetCRUD
 
         private void btlEkle_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtKategoriAdi.Text))
+            if (string.IsNullOrWhiteSpace(txtAdi.Text))
             {
-                MessageBox.Show("Kategori Adı Boş Geçmez");
+                MessageBox.Show("Adı Boş Geçmez");
                 return;
             }
-            var kategori = new Category
+            var kullanici = new User
             {
                 CreateDate = DateTime.Now,
-                Name = txtKategoriAdi.Text,
-                Description = txtAciklama.Text,
+                Name = txtAdi.Text,
+                Surname = txtSoyadi.Text,
                 IsActive = cbDurum.Checked,
+                Email = txtEmail.Text,
+                Password = txtSifre.Text,
             };
-            var sonuc = dAL.Add(kategori);
+            var sonuc = dAL.Add(kullanici);
+            if (sonuc > 0)
+            {
+                Yukle();
+                MessageBox.Show("Kayıt Başarılı!");
+            }
+            else
+            {
+                MessageBox.Show("Kayıt Başarısız");
+            }
+
+        }
+
+        private void dgvKullanicilar_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtAdi.Text = dgvKullanicilar.CurrentRow.Cells[1].Value.ToString();
+            txtSoyadi.Text = dgvKullanicilar.CurrentRow.Cells[2].Value.ToString();
+            txtEmail.Text = dgvKullanicilar.CurrentRow.Cells[3].Value.ToString();
+            txtSifre.Text = dgvKullanicilar.CurrentRow.Cells[4].Value.ToString();
+            cbDurum.Checked = (bool)dgvKullanicilar.CurrentRow.Cells[5].Value;
+
+
+            btlEkle.Enabled = false;
+            BtlGüncelle.Enabled = true;
+            btlSil.Enabled = true;
+        }
+
+        private void BtlGüncelle_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtAdi.Text))
+            {
+                MessageBox.Show("Adı Boş Geçmez");
+                return;
+            }
+            var kullanici = new User
+            {
+                Id = (int)dgvKullanicilar.CurrentRow.Cells[0].Value,
+                CreateDate = DateTime.Now,
+                Name = txtAdi.Text,
+                Surname = txtSoyadi.Text,
+                IsActive = cbDurum.Checked,
+                Email = txtEmail.Text,
+                Password = txtSifre.Text,
+            };
+            var sonuc = dAL.Update(kullanici);
             if (sonuc > 0)
             {
                 Yukle();
@@ -65,52 +101,14 @@ namespace WindowsFormsAppAdoNetCRUD
             }
         }
 
-        private void dgvKategoriler_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            txtKategoriAdi.Text = dgvKategoriler.CurrentRow.Cells[1].Value.ToString();
-            txtAciklama.Text = dgvKategoriler.CurrentRow.Cells[2].Value.ToString();
-            cbDurum.Checked = (bool)dgvKategoriler.CurrentRow.Cells[3].Value;
-
-            btlEkle.Enabled = false;
-            BtlGüncelle.Enabled = true;
-            btlSil.Enabled = true;
-        }
-
-        private void BtlGüncelle_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtKategoriAdi.Text))
-            {
-                MessageBox.Show("Kategori Adı Boş Geçmez");
-                return;
-            }
-            var kategori = new Category
-            {
-                Id = (int)dgvKategoriler.CurrentRow.Cells[0].Value,
-                CreateDate = DateTime.Now,
-                Name = txtKategoriAdi.Text,
-                Description = txtAciklama.Text,
-                IsActive = cbDurum.Checked,
-            };
-            var sonuc = dAL.Update(kategori); // kaydı güncelle 
-            if (sonuc > 0)
-            {
-                Yukle();
-                MessageBox.Show("Kayıt Güncelleme Başarılı!");
-            }
-            else
-            {
-                MessageBox.Show("Kayıt Güncelleme Başarısız");
-            }
-        }
-
         private void btlSil_Click(object sender, EventArgs e)
         {
-            var kategori = new Category
+            var kayit = new User
             {
-                Id = (int)dgvKategoriler.CurrentRow.Cells[0].Value,
-                
+                Id = (int)dgvKullanicilar.CurrentRow.Cells[0].Value,
+
             };
-            var sonuc = dAL.Delete(kategori); // kaydı silme
+            var sonuc = dAL.Delete(kayit); // kaydı silme
             if (sonuc > 0)
             {
                 Yukle();
@@ -122,4 +120,6 @@ namespace WindowsFormsAppAdoNetCRUD
             }
         }
     }
+    
+    
 }

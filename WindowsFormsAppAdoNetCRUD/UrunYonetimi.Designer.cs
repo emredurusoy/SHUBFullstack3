@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsAppAdoNetCRUD
 {
-    partial class KategoriYonetimi
+    partial class UrunYonetimi
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.dgvUrunler = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btlSil = new System.Windows.Forms.Button();
             this.BtlGüncelle = new System.Windows.Forms.Button();
@@ -35,13 +36,28 @@
             this.txtAciklama = new System.Windows.Forms.RichTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cbDurum = new System.Windows.Forms.CheckBox();
-            this.txtKategoriAdi = new System.Windows.Forms.TextBox();
+            this.txtStok = new System.Windows.Forms.TextBox();
+            this.txtUrunFiyati = new System.Windows.Forms.TextBox();
+            this.txtUrunAdi = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgvKategoriler = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUrunler)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvKategoriler)).BeginInit();
             this.SuspendLayout();
+            // 
+            // dgvUrunler
+            // 
+            this.dgvUrunler.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvUrunler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUrunler.Location = new System.Drawing.Point(23, 12);
+            this.dgvUrunler.Name = "dgvUrunler";
+            this.dgvUrunler.RowHeadersWidth = 51;
+            this.dgvUrunler.RowTemplate.Height = 24;
+            this.dgvUrunler.Size = new System.Drawing.Size(754, 219);
+            this.dgvUrunler.TabIndex = 2;
+            this.dgvUrunler.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUrunler_CellClick);
             // 
             // groupBox1
             // 
@@ -51,15 +67,19 @@
             this.groupBox1.Controls.Add(this.txtAciklama);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.cbDurum);
-            this.groupBox1.Controls.Add(this.txtKategoriAdi);
+            this.groupBox1.Controls.Add(this.txtStok);
+            this.groupBox1.Controls.Add(this.txtUrunFiyati);
+            this.groupBox1.Controls.Add(this.txtUrunAdi);
             this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 262);
+            this.groupBox1.Location = new System.Drawing.Point(23, 251);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(557, 176);
-            this.groupBox1.TabIndex = 0;
+            this.groupBox1.Size = new System.Drawing.Size(732, 176);
+            this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Kategori Bilgiler";
+            this.groupBox1.Text = "Ürün Bilgiler";
             // 
             // btlSil
             // 
@@ -95,21 +115,20 @@
             // 
             // txtAciklama
             // 
-            this.txtAciklama.Location = new System.Drawing.Point(322, 37);
+            this.txtAciklama.Location = new System.Drawing.Point(520, 37);
             this.txtAciklama.Name = "txtAciklama";
-            this.txtAciklama.Size = new System.Drawing.Size(215, 103);
+            this.txtAciklama.Size = new System.Drawing.Size(179, 103);
             this.txtAciklama.TabIndex = 4;
             this.txtAciklama.Text = "";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(244, 34);
+            this.label3.Location = new System.Drawing.Point(574, 18);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 16);
             this.label3.TabIndex = 3;
             this.label3.Text = "Açıklama";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // cbDurum
             // 
@@ -121,75 +140,97 @@
             this.cbDurum.Text = "Aktif";
             this.cbDurum.UseVisualStyleBackColor = true;
             // 
-            // txtKategoriAdi
+            // txtStok
             // 
-            this.txtKategoriAdi.Location = new System.Drawing.Point(104, 31);
-            this.txtKategoriAdi.Name = "txtKategoriAdi";
-            this.txtKategoriAdi.Size = new System.Drawing.Size(100, 22);
-            this.txtKategoriAdi.TabIndex = 1;
+            this.txtStok.Location = new System.Drawing.Point(343, 68);
+            this.txtStok.Name = "txtStok";
+            this.txtStok.Size = new System.Drawing.Size(100, 22);
+            this.txtStok.TabIndex = 1;
+            // 
+            // txtUrunFiyati
+            // 
+            this.txtUrunFiyati.Location = new System.Drawing.Point(343, 31);
+            this.txtUrunFiyati.Name = "txtUrunFiyati";
+            this.txtUrunFiyati.Size = new System.Drawing.Size(100, 22);
+            this.txtUrunFiyati.TabIndex = 1;
+            // 
+            // txtUrunAdi
+            // 
+            this.txtUrunAdi.Location = new System.Drawing.Point(104, 31);
+            this.txtUrunAdi.Name = "txtUrunAdi";
+            this.txtUrunAdi.Size = new System.Drawing.Size(100, 22);
+            this.txtUrunAdi.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 74);
+            this.label2.Location = new System.Drawing.Point(17, 71);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 16);
             this.label2.TabIndex = 0;
             this.label2.Text = "Durum";
-            this.label2.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.CausesValidation = false;
+            this.label5.Location = new System.Drawing.Point(256, 74);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(34, 16);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Stok";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(256, 37);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(70, 16);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Ürün Fiyatı";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 37);
+            this.label1.Location = new System.Drawing.Point(17, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 16);
+            this.label1.Size = new System.Drawing.Size(58, 16);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Kategori Adı";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.label1.Text = "Ürün Adı";
             // 
-            // dgvKategoriler
-            // 
-            this.dgvKategoriler.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvKategoriler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvKategoriler.Location = new System.Drawing.Point(21, 22);
-            this.dgvKategoriler.Name = "dgvKategoriler";
-            this.dgvKategoriler.RowHeadersWidth = 51;
-            this.dgvKategoriler.RowTemplate.Height = 24;
-            this.dgvKategoriler.Size = new System.Drawing.Size(754, 219);
-            this.dgvKategoriler.TabIndex = 1;
-            this.dgvKategoriler.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKategoriler_CellClick);
-            // 
-            // KategoriYonetimi
+            // UrunYonetimi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(797, 450);
-            this.Controls.Add(this.dgvKategoriler);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.groupBox1);
-            this.Name = "KategoriYonetimi";
+            this.Controls.Add(this.dgvUrunler);
+            this.Name = "UrunYonetimi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Kategori Yönetimi";
-            this.Load += new System.EventHandler(this.KategoriYonetimi_Load);
+            this.Text = "Ürün Yönetimi";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUrunler)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvKategoriler)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        private System.Windows.Forms.DataGridView dgvUrunler;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtKategoriAdi;
-        private System.Windows.Forms.CheckBox cbDurum;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.RichTextBox txtAciklama;
-        private System.Windows.Forms.DataGridView dgvKategoriler;
-        private System.Windows.Forms.Button btlEkle;
         private System.Windows.Forms.Button btlSil;
         private System.Windows.Forms.Button BtlGüncelle;
+        private System.Windows.Forms.Button btlEkle;
+        private System.Windows.Forms.RichTextBox txtAciklama;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox cbDurum;
+        private System.Windows.Forms.TextBox txtUrunAdi;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtUrunFiyati;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtStok;
+        private System.Windows.Forms.Label label5;
     }
 }
