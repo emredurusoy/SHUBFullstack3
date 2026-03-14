@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -101,7 +102,21 @@ namespace WindowsFormsAppEntityFrameworkCRUD
 
         private void btlSil_Click(object sender, EventArgs e)
         {
+            var id = (int)dgvKullanicilar.CurrentRow.Cells["Id"].Value;
+            var kayit = context.Users.Find(id);
 
+            context.Users.Remove(kayit);
+
+            var sonuc = context.SaveChanges();
+            if (sonuc > 0)
+            {
+                Yukle();
+                MessageBox.Show("Kayıt Silme Başarılı!");
+            }
+            else
+            {
+                MessageBox.Show("Kayıt Silme Başarısız");
+            }
         }
     }
 }
