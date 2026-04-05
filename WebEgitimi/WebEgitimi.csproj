@@ -85,7 +85,18 @@
     <Content Include="JavaScriptEgitimi\Konu04Donguler.html" />
     <Content Include="JavaScriptEgitimi\Konu05Fonksiyonlar.html" />
     <Content Include="JavaScriptEgitimi\Konu06StringMetotlari.html" />
+    <Content Include="JavaScriptEgitimi\Konu07Olaylar.html" />
+    <Content Include="JavaScriptEgitimi\Konu08Diziler.html" />
+    <Content Include="JavaScriptEgitimi\Konu09Seciciler.html" />
+    <Content Include="JavaScriptEgitimi\Konu10-JquerySeciciler.html" />
+    <Content Include="JavaScriptEgitimi\Konu11-Jquery-Html.html" />
+    <Content Include="JavaScriptEgitimi\Konu12-Jquery-CSS.html" />
     <Content Include="Resimler\download.jpg" />
+    <None Include="Scripts\jquery-3.7.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.7.1.js" />
+    <Content Include="Scripts\jquery-3.7.1.min.js" />
+    <Content Include="Scripts\jquery-3.7.1.slim.js" />
+    <Content Include="Scripts\jquery-3.7.1.slim.min.js" />
     <Content Include="stil.css" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -97,6 +108,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.7.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.7.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
