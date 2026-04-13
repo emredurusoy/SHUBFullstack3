@@ -79,6 +79,7 @@
     <Content Include="HtmlCssPage.html" />
     <Content Include="HtmlPage.html" />
     <Content Include="index.html" />
+    <Content Include="JavaScriptEgitimi\Ajaxicerik.txt" />
     <Content Include="JavaScriptEgitimi\Konu01JavascirptGirs.html" />
     <Content Include="JavaScriptEgitimi\Konu02Operatorler.html" />
     <Content Include="JavaScriptEgitimi\Konu03KararYapilari.html" />
@@ -91,6 +92,10 @@
     <Content Include="JavaScriptEgitimi\Konu10-JquerySeciciler.html" />
     <Content Include="JavaScriptEgitimi\Konu11-Jquery-Html.html" />
     <Content Include="JavaScriptEgitimi\Konu12-Jquery-CSS.html" />
+    <Content Include="JavaScriptEgitimi\Konu13-jqyery-Dom.html" />
+    <Content Include="JavaScriptEgitimi\Konu14-Jquerry-Efektler.html" />
+    <Content Include="JavaScriptEgitimi\Konu15-Jquerry-Ajax.html" />
+    <Content Include="JavaScriptEgitimi\Konu16-Javascript-Dunyası.html" />
     <Content Include="Resimler\download.jpg" />
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.1.js" />
