@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿﻿
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="utf-8" />
@@ -14,7 +15,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">NetCoreMVCEgitimi</a>
+                <a class="navbar-brand" asp-area="Admin" asp-controller="Main" asp-action="Index">NetCoreMVCEgitimi</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -22,30 +23,7 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Anasayfa</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="MVC01RazorSyntax" asp-action="Privacy">MVC01RazorSyntax</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="MVC02HtmlHelpersControlIer" asp-action="Privacy">MVC02HtmlHelpersControlIer</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="MVC03DataTransferControIIer" asp-action="Privacy">MVC03DataTransferControIIer</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="MVC04ModelBindingController" asp-action="Privacy">MVC04ModelBindingController</a>
-                        </li>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link text-dark" asp-controller="MVC05ModelValidation" asp-action="Privacy">MVC05ModelValidation</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link text-dark" asp-controller="MVC06CRUD" asp-action="Privacy">MVC06CRUD</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link text-dark" asp-controller="MVC07Section" asp-action="Privacy">MVC07Section</a>
-                        @Html.Partial("_PartialMenu")
+                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Uyeler" asp-action="Index">Uyeler</a>
                         </li>
                     </ul>
                 </div>
@@ -57,7 +35,7 @@
             @RenderBody()
         </main>
     </div>
-
+    @await RenderSectionAsync("OzelIcerik", required: false)
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2026 - NetCoreMVCEgitimi - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>

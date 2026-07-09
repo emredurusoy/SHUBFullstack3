@@ -1,4 +1,4 @@
-﻿/* using Microsoft.EntityFrameworkCore;
+﻿ using Microsoft.EntityFrameworkCore;
 
 namespace NetCoreMVCEgitimi.Models
 {
@@ -13,4 +13,3 @@ namespace NetCoreMVCEgitimi.Models
     }
 }
 
-*/
